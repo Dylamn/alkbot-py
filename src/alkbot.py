@@ -2,7 +2,6 @@ import re
 import discord
 import src.commands
 
-from discord import Message
 from discord.ext import commands
 from src.helpers import get_string
 
@@ -24,7 +23,7 @@ class AlkBot(commands.Bot):
             activity=discord.Game(get_string('activity'))
         )
 
-    async def on_message(self, message: Message):
+    async def on_message(self, message: discord.Message):
         """Event executed each time a message is posted on the channels where the bot has access"""
         # Process with commands...
         await super(AlkBot, self).on_message(message)

@@ -7,14 +7,12 @@ def base_path(relpath: str = ''):
     from pathlib import Path
 
     path = Path().absolute()
-    tries = 0
 
     if 'alkbot' not in str(path):
         EnvironmentError('Project folder not found.')
 
-    while not str(path).endswith('alkbot') and tries < 3:
+    while 'alkbot' not in path.name:
         path = path.parent
-        tries += 1
 
     return path.joinpath(relpath)
 
